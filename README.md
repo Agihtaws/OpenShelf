@@ -1,41 +1,84 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Here's the README file as code:
 
-## Getting Started
 
-First, run the development server:
+# OpenShelf: Library Management System
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Welcome to OpenShelf, a modern Library Management System designed to cater to three user roles: **Admin**, **Librarian**, and **User**. This platform ensures efficient library operations with distinct functionalities for each role, ensuring a seamless experience for all stakeholders.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features and Functionalities
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Admin
+- **Sign-Up & Security**: The admin can sign up only once. A unique **secret key** is generated for secure logins. Email verification is required for multiple device logins.
+- **Password Recovery**: Retrieve passwords via email verification.
+- **Dashboard**: Displays total books, newly added books, overdue items, and new patrons.
+- **Manage Librarians**: Add and view librarian details.
+- **Patron Management**: Access patron details for effective oversight.
+- **Reports**: Analyze borrowing, payments, and overdue trends over various timeframes.
+- **Book Management**: Add new books with ISBN auto-fill, manage shelf numbers, and track stock statuses (*Unavailable*, *Low Stock*, *Available*).
+- **Settings**: Update admin details displayed on the dashboard.
+- **Reinitialization**: In absence of an admin, fresh sign-up reinitializes the system.
 
-## Learn More
+### Librarian
+- **Dashboard**: Monitor daily, weekly, and monthly activity trends, and track book movements.
+- **New Arrivals**: Check recently added books and stock levels.
+- **Patron Management**: Add patrons and manage their details.
+- **Reserve & Borrow**: Approve and manage book reservations, borrowing, and returns.
 
-To learn more about Next.js, take a look at the following resources:
+### User
+- **Registration**: Register with a one-time fee of ₹500 to receive a library ID and password.
+- **Dashboard**: Access book catalog, stock status, recommended books, and shelf navigation.
+- **Book Management**: Reserve books, add favorites, and pay fines.
+- **Settings**: Update passwords.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Setup Guide
 
-## Deploy on Vercel
+### Steps to Set Up and Run the Project
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Agihtaws/OpenShelf
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# OpenShelf
-A Virtual Open Library
->>>>>>> 8782e3cfa70a6ffdfd0646f68cafbb2f249c61eb
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd openshelf
+   ```
+
+3. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Run the Development Server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Access the Application:**
+   Open your browser and go to the URL displayed in the terminal (e.g., `http://localhost:3000`).
+
+---
+
+## Workflow
+
+1. **Set Up Admin:**
+   - Complete registration via the "Admin Registration" page.
+
+2. **Add Librarian:**
+   - Admins can log in to the dashboard and create librarian accounts.
+
+3. **Add Patrons:**
+   - Librarians can add patrons via their dashboard.
+
+This structured workflow ensures smooth library management for all users.
+
+---
+
+## About
+OpenShelf streamlines library management, enhancing efficiency and user satisfaction. Check out the repository [here](https://github.com/Agihtaws/OpenShelf) for more details.
+
+Enjoy exploring OpenShelf! 😊
