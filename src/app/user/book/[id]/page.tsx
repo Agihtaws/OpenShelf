@@ -440,9 +440,9 @@ const confirmCancelReservation = async () => {
           </div>
 
           <div className={styles.statusSection}>
-            <div className={`${styles.statusBadge} ${styles[book.status.replace(/\s+/g, '').toLowerCase()]}`}>
-              {book.status}
-            </div>
+          <div className={`${styles.statusBadge} ${book.status ? styles[book.status.replace(/\s+/g, '').toLowerCase()] : ''}`}>
+  {book.status || 'Unknown'}
+</div>
             {book.copies > 0 && (
               <span className={styles.copiesInfo}>
                 {book.copies} {book.copies === 1 ? 'copy' : 'copies'} available

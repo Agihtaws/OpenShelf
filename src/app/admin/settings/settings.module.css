@@ -58,44 +58,11 @@
   border-radius: 50%;
 }
 
-.profileImageButtons {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
 
-.imageButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
 
-.uploadButton {
-  background-color: var(--primary-color-light, rgba(66, 99, 235, 0.1));
-  color: var(--primary-color, #4263eb);
-  border: 1px solid var(--primary-color-light, rgba(66, 99, 235, 0.2));
-}
 
-.uploadButton:hover {
-  background-color: var(--primary-color-light, rgba(66, 99, 235, 0.2));
-}
 
-.removeButton {
-  background-color: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.2);
-}
 
-.removeButton:hover {
-  background-color: rgba(239, 68, 68, 0.2);
-}
 
 .hiddenFileInput {
   display: none;
@@ -201,7 +168,6 @@
   border-radius: 0.375rem;
   border: 1px solid var(--border-color, #e2e8f0);
   transition: background-color 0.3s ease, border-color 0.3s ease;
-
 }
 
 .securityKeyWarning {
@@ -227,7 +193,76 @@
   word-break: break-all;
   color: var(--text-color, #1e293b);
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
 
+/* Password Verification Modal */
+.passwordVerificationOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.passwordVerificationModal {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+}
+
+.passwordVerificationModal h3 {
+  margin-top: 0;
+  color: var(--text-color, #1e293b);
+  font-size: 1.25rem;
+}
+
+.passwordInputContainer {
+  margin: 1.5rem 0;
+}
+
+.passwordInputContainer input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.cancelButton {
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color, #1e293b);
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.verifyButton {
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 /* Save Button */
@@ -268,7 +303,6 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  
 }
 
 .loadingSpinner {
@@ -337,6 +371,31 @@
   border-top-color: #4263eb;
 }
 
+/* Dark mode styles for password verification modal */
+:global(.dark-mode) .passwordVerificationModal {
+  background-color: #1e293b;
+}
+
+:global(.dark-mode) .passwordVerificationModal h3,
+:global(.dark-mode) .passwordVerificationModal p {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .passwordInputContainer input {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .cancelButton {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .cancelButton:hover {
+  background-color: #475569;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .settingsContainer {
@@ -349,6 +408,11 @@
   
   .profileDetailsSection {
     padding: 0;
+  }
+  
+  .passwordVerificationModal {
+    width: 95%;
+    padding: 1.25rem;
   }
 }
 
@@ -372,6 +436,16 @@
   }
   
   .imageButton {
+    width: 100%;
+  }
+  
+  .modalButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .cancelButton,
+  .verifyButton {
     width: 100%;
   }
 }

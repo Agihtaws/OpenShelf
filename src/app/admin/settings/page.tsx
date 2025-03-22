@@ -14,7 +14,8 @@ import {
   ref,
   uploadBytesResumable,
   getDownloadURL,
-  deleteObject
+  deleteObject,
+  signInWithEmailAndPassword
 } from '@/firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
 import styles from './settings.module.css';
@@ -55,6 +56,11 @@ export default function AdminSettings() {
   
   // Original profile data for comparison
   const [originalProfile, setOriginalProfile] = useState<AdminProfile | null>(null);
+
+  // States for password verification
+  const [isVerifyingPassword, setIsVerifyingPassword] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   // Check authentication when component mounts
   useEffect(() => {
@@ -173,6 +179,12 @@ export default function AdminSettings() {
         [name]: value
       }));
     }
+  };
+
+  // Handle password input change
+  const handlePasswordInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPasswordInput(e.target.value);
+    if (passwordError) setPasswordError('');
   };
 
   // Handle profile image upload
@@ -384,7 +396,52 @@ export default function AdminSettings() {
 
   // Toggle security key visibility
   const toggleSecurityKey = () => {
-    setShowSecurityKey(!showSecurityKey);
+    if (showSecurityKey) {
+      // If already showing, just hide it
+      setShowSecurityKey(false);
+      setPasswordInput('');
+      setPasswordError('');
+    } else {
+      // If not showing, require password verification first
+      setIsVerifyingPassword(true);
+    }
+  };
+
+  // Verify admin password
+  const verifyAdminPassword = async () => {
+    if (!passwordInput.trim()) {
+      setPasswordError('Password is required');
+      return;
+    }
+    
+    try {
+      // Get current user
+      const currentUser = auth.currentUser;
+      if (!currentUser) throw new Error('Not authenticated');
+      
+      // Re-authenticate user with their password
+      await signInWithEmailAndPassword(
+        auth,
+        currentUser.email || '',
+        passwordInput
+      );
+      
+      // If successful, show security key
+      setShowSecurityKey(true);
+      setIsVerifyingPassword(false);
+      setPasswordInput('');
+      setPasswordError('');
+    } catch (error) {
+      console.error("Password verification failed:", error);
+      setPasswordError('Incorrect password. Please try again.');
+    }
+  };
+
+  // Cancel password verification
+  const cancelPasswordVerification = () => {
+    setIsVerifyingPassword(false);
+    setPasswordInput('');
+    setPasswordError('');
   };
 
   // Show loading state while checking authentication
@@ -404,8 +461,6 @@ export default function AdminSettings() {
 
   return (
     <div className={styles.settingsContainer}>
-      
-      
       <div className={styles.settingsContent}>
         <div className={styles.profileSection}>
           <div className={styles.profileImageContainer}>
@@ -436,13 +491,8 @@ export default function AdminSettings() {
             )}
           </div>
           
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleImageUpload}
-            accept="image/*"
-            className={styles.hiddenFileInput}
-          />
+         
+          
         </div>
         
         <div className={styles.profileDetailsSection}>
@@ -502,6 +552,45 @@ export default function AdminSettings() {
               {showSecurityKey ? 'Hide Security Key' : 'Show Security Key'}
             </button>
             
+            {/* Password Verification Modal */}
+            {isVerifyingPassword && (
+              <div className={styles.passwordVerificationOverlay}>
+                <div className={styles.passwordVerificationModal}>
+                  <h3>Admin Verification Required</h3>
+                  <p>Please enter your admin password to view the security key.</p>
+                  
+                  <div className={styles.passwordInputContainer}>
+                    <input
+                      type="password"
+                      value={passwordInput}
+                      onChange={handlePasswordInputChange}
+                      placeholder="Enter your password"
+                      className={passwordError ? styles.inputError : ''}
+                    />
+                    {passwordError && (
+                      <span className={styles.errorText}>{passwordError}</span>
+                    )}
+                  </div>
+                  
+                  <div className={styles.modalButtons}>
+                    <button 
+                      className={styles.cancelButton}
+                      onClick={cancelPasswordVerification}
+                    >
+                      Cancel
+                    </button>
+                    <button 
+                      className={styles.verifyButton}
+                      onClick={verifyAdminPassword}
+                    >
+                      Verify
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {/* Security Key Display (only shown after password verification) */}
             {showSecurityKey && profile.securityKey && (
               <div className={styles.securityKeyDisplay}>
                 <p className={styles.securityKeyWarning}>

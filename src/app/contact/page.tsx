@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/app/components/layout/Navbar';
 import styles from './contact.module.css';
+import Footer from '../components/layout/Footer';
 
 interface FormData {
   name: string;
@@ -81,14 +82,7 @@ export default function ContactPage() {
     setSubmitting(true);
     
     try {
-      // In a real application, you would send this data to your backend
-      // await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
       
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       setSubmitted(true);
@@ -346,15 +340,12 @@ export default function ContactPage() {
               </div>
             ))}
           </div>
-          <div className={styles.faqCta}>
-            <p>Can't find what you're looking for?</p>
-            <Link href="/faq" className={styles.faqLink}>
-              View All FAQs
-            </Link>
-          </div>
+          
         </div>
       </div>
     </main>
+    
+    <Footer />
     </>
   );
 }

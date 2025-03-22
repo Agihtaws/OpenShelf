@@ -59,13 +59,8 @@ export default function Navbar() {
         </div>
         
         <div className={styles.authLinks}>
-        <Link href="/auth/register" className={styles.loginButton}>Register</Link>
-        <Link 
-            href="/auth/login" 
-            className={`${styles.careersLink} ${isActive('/auth/login') ? styles.activeLink : ''}`}
-          >
-            Login
-          </Link>
+        <Link href="/auth/login" className={styles.loginButton}>Login</Link>
+        
           
           
         </div>

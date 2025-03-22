@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/app/components/layout/Navbar';
 import styles from './features.module.css';
+import Footer from '../components/layout/Footer';
 
 export default function FeaturesPage() {
   return (
@@ -433,9 +434,7 @@ export default function FeaturesPage() {
             <h2>Ready to transform your library operations?</h2>
             <p>See how LibraryOS can help your institution streamline workflows and enhance services.</p>
             <div className={styles.ctaButtons}>
-              <Link href="/demo" className={styles.primaryButton}>
-                Request Demo
-              </Link>
+              
               <Link href="/contact" className={styles.secondaryButton}>
                 Contact Sales
               </Link>
