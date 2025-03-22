@@ -1,4 +1,4 @@
-Here's the README file as code:
+
 
 
 # OpenShelf: Library Management System
