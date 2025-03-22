@@ -1,0 +1,578 @@
+/* src/app/user/reserved/reserved.module.css */
+.mainContent {
+  padding: 1.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: var(--bg-color, #f8fafc);
+}
+
+/* Page Header */
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+
+
+.headerDescription {
+  font-size: 1rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0 0 1.5rem;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.sortFilter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sortLabel {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+.sortSelect {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+}
+
+.sortSelect:focus {
+  outline: none;
+  border-color: var(--primary-color, #4263eb);
+  box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.1);
+}
+
+/* Books Grid */
+.booksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.bookCard {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color, #e2e8f0);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.bookCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.bookCover {
+  position: relative;
+  height: 270px;
+  overflow: hidden;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-tertiary, #94a3b8);
+  background-color: var(--bg-color-secondary, #e2e8f0);
+}
+
+.statusBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bookInfo {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bookTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: var(--text-color, #1e293b);
+}
+
+.bookAuthor {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0 0 0.75rem;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.category {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color-secondary, #64748b);
+  border-radius: 1rem;
+  white-space: nowrap;
+}
+
+.reservationDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: var(--bg-color-hover, #f1f5f9);
+  border-radius: 0.5rem;
+}
+
+.dateInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.dateIcon {
+  color: var(--primary-color, #4263eb);
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.reservedDate, .pickupDate {
+  font-size: 0.875rem;
+  color: var(--text-color, #1e293b);
+  margin: 0;
+}
+
+.pickupNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border-color, #e2e8f0);
+}
+
+.alertIcon {
+  color: #f59e0b;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.pickupNote p {
+  font-size: 0.75rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.bookActions {
+  margin-top: auto;
+}
+
+.cancelButton {
+  width: 100%;
+  padding: 0.625rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+.cancelButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  grid-column: 1 / -1;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  color: var(--text-color-tertiary, #94a3b8);
+  margin-bottom: 1.5rem;
+}
+
+.emptyState h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--text-color, #1e293b);
+}
+
+.emptyState p {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  max-width: 400px;
+  margin: 0 0 1.5rem;
+}
+
+.browseButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.browseButton:hover {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+/* Confirmation Modal */
+.confirmationOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.confirmationPopup {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  width: 100%;
+  max-width: 500px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.confirmationPopup.cancel {
+  border-top: 4px solid #f59e0b;
+}
+
+.confirmationIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+}
+
+.cancelIcon {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.confirmationPopup h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--text-color, #1e293b);
+  text-align: center;
+}
+
+.confirmationPopup p {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+.confirmationButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cancelConfirmButton {
+  padding: 0.625rem 1.25rem;
+  background-color: #f59e0b;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelConfirmButton:hover:not(:disabled) {
+  background-color: #d97706;
+}
+
+.cancelConfirmButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancelButton.popup {
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color, #1e293b);
+  padding: 0.625rem 1.25rem;
+}
+
+.cancelButton.popup:hover {
+  background-color: var(--bg-color-hover, #cbd5e1);
+}
+
+/* Toast Notification */
+.toastContainer {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+/* src/app/user/reserved/reserved.module.css (continued) */
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease-out;
+  max-width: 350px;
+}
+
+.toast.success {
+  background-color: #10b981;
+  color: white;
+}
+
+.toast.error {
+  background-color: #ef4444;
+  color: white;
+}
+
+.toastIcon {
+  font-size: 1.25rem;
+}
+
+.toastMessage {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  height: 100vh;
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--primary-color-light, rgba(66, 99, 235, 0.1));
+  border-radius: 50%;
+  border-top: 4px solid var(--primary-color, #4263eb);
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingContainer p {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+/* Dark Mode Styles */
+:global(.dark-mode) .mainContent {
+  background-color: #1e293b;
+}
+
+
+
+:global(.dark-mode) .headerDescription,
+:global(.dark-mode) .bookAuthor,
+:global(.dark-mode) .category,
+:global(.dark-mode) .sortLabel,
+:global(.dark-mode) .pickupNote p,
+:global(.dark-mode) .confirmationPopup p,
+:global(.dark-mode) .loadingContainer p,
+:global(.dark-mode) .emptyState p {
+  color: #94a3b8;
+}
+
+:global(.dark-mode) .bookTitle,
+:global(.dark-mode) .reservedDate,
+:global(.dark-mode) .pickupDate,
+:global(.dark-mode) .confirmationPopup h3,
+:global(.dark-mode) .emptyState h3 {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .sortSelect,
+:global(.dark-mode) .bookCard,
+:global(.dark-mode) .confirmationPopup,
+:global(.dark-mode) .emptyState {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .emptyIcon,
+:global(.dark-mode) .coverFallback {
+  color: #64748b;
+}
+
+:global(.dark-mode) .category {
+  background-color: #334155;
+}
+
+:global(.dark-mode) .reservationDetails {
+  background-color: #0f172a;
+}
+
+:global(.dark-mode) .pickupNote {
+  border-color: #334155;
+}
+
+:global(.dark-mode) .cancelButton.popup {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .cancelButton.popup:hover {
+  background-color: #475569;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .booksGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .sortFilter {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .sortSelect {
+    flex: 1;
+  }
+  
+  .confirmationButtons {
+    flex-direction: column;
+  }
+  
+  .confirmationPopup {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .mainContent {
+    padding: 1rem;
+  }
+  
+  .booksGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pageHeader h1 {
+    font-size: 1.5rem;
+  }
+  
+  .dateInfo {
+    flex-direction: column;
+  }
+  
+  .dateIcon {
+    display: none;
+  }
+}

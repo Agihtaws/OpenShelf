@@ -1,0 +1,510 @@
+/* src/app/user/catalog/Catalog.module.css */
+.mainContent {
+  padding: 1.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: var(--bg-color, #f8fafc);
+}
+
+/* Page Header */
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+
+
+.pageHeader h3 {
+  font-size: 1rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0;
+}
+
+/* Action Bar */
+.actionBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color-tertiary, #94a3b8);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary-color, #4263eb);
+  box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.1);
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filterLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+.filterIcon {
+  color: var(--text-color-tertiary, #94a3b8);
+}
+
+.filterSelect {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--primary-color, #4263eb);
+  box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.1);
+}
+
+/* View Toggle */
+.viewToggle {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.viewButton {
+  padding: 0.5rem;
+  background: none;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.375rem;
+  color: var(--text-color-tertiary, #94a3b8);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewButton.active {
+  background-color: var(--primary-color, #4263eb);
+  border-color: var(--primary-color, #4263eb);
+  color: white;
+}
+
+.viewButton:hover:not(.active) {
+  background-color: var(--bg-color-hover, #f1f5f9);
+}
+
+/* Books Container */
+.booksContainer {
+  margin-bottom: 2rem;
+}
+
+.gridView {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.listView {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bookCard {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.listView .bookCard {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.bookCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.bookCover {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+}
+
+.gridView .bookCover {
+  height: 240px;
+}
+
+.listView .bookCover {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.noCoverImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-tertiary, #94a3b8);
+}
+
+.bookInfo {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.listView .bookInfo {
+  padding: 1rem;
+}
+
+.bookTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: var(--text-color, #1e293b);
+}
+
+.bookAuthor {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0 0 0.75rem;
+}
+
+.bookDescription {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.bookCategories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.categoryPill {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color-secondary, #64748b);
+  border-radius: 1rem;
+  white-space: nowrap;
+}
+
+.noCategoryLabel {
+  font-size: 0.75rem;
+  color: var(--text-color-tertiary, #94a3b8);
+  font-style: italic;
+}
+
+.moreCategoriesLabel {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--bg-color-hover, #f1f5f9);
+  color: var(--text-color-tertiary, #94a3b8);
+  border-radius: 1rem;
+}
+
+.viewDetailsButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1rem;
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  margin-top: auto;
+  text-align: center;
+}
+
+.viewDetailsButton:hover {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+/* Load More */
+.loadMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.loadMoreButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-color-hover, #f1f5f9);
+  color: var(--text-color, #1e293b);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.loadMoreButton:hover {
+  background-color: var(--bg-color-secondary, #e2e8f0);
+}
+
+/* Error Message */
+.errorMessage {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.emptyIcon {
+  color: var(--text-color-tertiary, #94a3b8);
+  margin-bottom: 1.5rem;
+}
+
+.emptyState h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--text-color, #1e293b);
+}
+
+.emptyState p {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  max-width: 400px;
+  margin: 0;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--primary-color-light, rgba(66, 99, 235, 0.1));
+  border-radius: 50%;
+  border-top: 4px solid var(--primary-color, #4263eb);
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingContainer p {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+/* Dark Mode Styles */
+:global(.dark-mode) .mainContent {
+  background-color: #1e293b;
+}
+
+:global(.dark-mode) .pageHeader h1 {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+:global(.dark-mode) .pageHeader h3,
+:global(.dark-mode) .bookAuthor,
+:global(.dark-mode) .bookDescription,
+:global(.dark-mode) .filterLabel,
+:global(.dark-mode) .loadingContainer p,
+:global(.dark-mode) .emptyState p {
+  color: #94a3b8;
+}
+
+:global(.dark-mode) .bookTitle,
+:global(.dark-mode) .emptyState h3 {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .searchInput,
+:global(.dark-mode) .filterSelect,
+:global(.dark-mode) .bookCard,
+:global(.dark-mode) .emptyState {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .searchIcon,
+:global(.dark-mode) .filterIcon,
+:global(.dark-mode) .emptyIcon,
+:global(.dark-mode) .noCoverImage,
+:global(.dark-mode) .noCategoryLabel,
+:global(.dark-mode) .moreCategoriesLabel {
+  color: #64748b;
+}
+
+:global(.dark-mode) .viewButton {
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+:global(.dark-mode) .viewButton:hover:not(.active) {
+  background-color: #334155;
+}
+
+:global(.dark-mode) .categoryPill {
+  background-color: #334155;
+  color: #94a3b8;
+}
+
+:global(.dark-mode) .moreCategoriesLabel {
+  background-color: #0f172a;
+}
+
+:global(.dark-mode) .loadMoreButton {
+  background-color: #334155;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+:global(.dark-mode) .loadMoreButton:hover {
+  background-color: #475569;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .gridView {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .actionBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .searchWrapper {
+    width: 100%;
+  }
+  
+  .filters {
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .filterGroup {
+    flex: 1;
+  }
+  
+  .viewToggle {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  
+  .viewButton {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .listView .bookCard {
+    flex-direction: column;
+  }
+  
+  .listView .bookCover {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mainContent {
+    padding: 1rem;
+  }
+  
+  .gridView {
+    grid-template-columns: 1fr;
+  }
+  
+  .pageHeader h1 {
+    font-size: 1.5rem;
+  }
+}

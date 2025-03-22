@@ -1,0 +1,822 @@
+/* src/app/librarian/add-patron/AddPatron.module.css */
+
+.addPatronPage {
+  padding: 1.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: var(--bg-color, #f8fafc);
+}
+
+/* Page Header */
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+
+
+.pageHeader h3 {
+  font-size: 1rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--primary-color, #4263eb);
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+/* Error and Success Messages */
+.errorMessage, .successMessage {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.errorMessage {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.successMessage {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+/* Form Container */
+.formContainer {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color, #e2e8f0);
+  overflow: hidden;
+}
+
+.patronForm {
+  padding: 1.5rem;
+}
+
+.formSections {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  color: var(--text-color, #1e293b);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.formGroup {
+  margin-bottom: 1.25rem;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-color, #1e293b);
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color-tertiary, #94a3b8);
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: var(--primary-color, #4263eb);
+  box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.1);
+}
+
+.inputError {
+  border-color: #ef4444;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.checkingIndicator {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--text-color-tertiary, #94a3b8);
+}
+
+.existsWarning {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #ef4444;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Membership Info */
+.membershipInfo {
+  background-color: var(--bg-color-hover, #f8fafc);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.membershipType {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.membershipIcon {
+  font-size: 1.5rem;
+  color: var(--primary-color, #4263eb);
+}
+
+.membershipTypeLabel {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-color, #1e293b);
+}
+
+.feeDisplay {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+.feeDisplay strong {
+  color: var(--primary-color, #4263eb);
+  font-weight: 600;
+}
+
+.membershipDuration {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+/* Form Actions */
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color, #e2e8f0);
+}
+
+.cancelButton, .submitButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton {
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color, #1e293b);
+  border: none;
+}
+
+.cancelButton:hover {
+  background-color: var(--bg-color-hover, #cbd5e1);
+}
+
+.submitButton {
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border: none;
+}
+
+.submitButton:hover {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* src/app/librarian/add-patron/AddPatron.module.css */
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+  overflow: auto; /* Enable scrolling if modal content overflows */
+}
+
+/* Modal */
+.modal {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  width: 100%;
+  max-width: 550px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh; /* Limit the modal height */
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.modalBody {
+  padding: 1.5rem;
+  overflow-y: auto; /* Enable scrolling within the modal body */
+  flex: 1; /* Allow the body to grow and fill available space */
+}
+
+.modalFooter {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border-color, #e2e8f0);
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  background-color: var(--bg-color-card, #ffffff); /* Ensure footer background */
+}
+
+.modalButton {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modalButton:hover {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+/* Library Card */
+.libraryCard {
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(66, 99, 235, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.cardHeader {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 1.25rem;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.cardBody {
+  padding: 1.25rem;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cardId {
+  font-size: 1rem;
+  font-family: monospace;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.cardIssued, .cardExpiry {
+  font-size: 0.875rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Credential Info */
+.credentialInfo {
+  background-color: var(--bg-color-hover, #f8fafc);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+
+.credentialItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.credentialLabel {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+.credentialValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-color, #1e293b);
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+.credentialNote {
+  font-size: 0.75rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0.75rem 0 1.5rem;
+  line-height: 1.5;
+}
+
+/* Payment Confirmation */
+.paymentConfirmation {
+  display: flex;
+  gap: 1rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.paymentConfirmationIcon {
+  width: 2rem;
+  height: 2rem;
+  background-color: #10b981;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.paymentConfirmationDetails {
+  flex: 1;
+}
+
+.paymentConfirmationDetails h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: #10b981;
+}
+
+.paymentConfirmationDetails p {
+  font-size: 0.875rem;
+  margin: 0.25rem 0;
+  color: var(--text-color-secondary, #64748b);
+}
+
+
+/* Payment Modal */
+.paymentModal {
+  max-width: 650px;
+}
+
+.modalContent {
+  padding: 1.5rem;
+}
+
+.paymentDetails {
+  background-color: var(--bg-color-hover, #f8fafc);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.paymentRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.paymentLabel {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+.paymentValue {
+  font-size: 0.875rem;
+  color: var(--text-color, #1e293b);
+}
+
+.paymentAmount {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color, #4263eb);
+}
+
+.paymentMethods h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--text-color, #1e293b);
+}
+
+.paymentMethodOptions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.paymentMethod {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.paymentMethod.selected {
+  border-color: var(--primary-color, #4263eb);
+  background-color: rgba(66, 99, 235, 0.05);
+}
+
+.methodIcon {
+  font-size: 1.5rem;
+}
+
+/* UPI Payment */
+.upiPaymentInfo, .cashPaymentInfo {
+  border-top: 1px solid var(--border-color, #e2e8f0);
+  padding-top: 1.5rem;
+}
+
+.upiPaymentInfo h4, .cashPaymentInfo h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--text-color, #1e293b);
+  text-align: center;
+}
+
+.upiDetails {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.upiQRContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.upiQRCode {
+  max-width: 180px;
+  height: auto;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.5rem;
+}
+
+.qrLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  background-color: var(--bg-color-hover, #f8fafc);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+.upiIDContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.upiIDLabel {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0 0 0.5rem;
+}
+
+.upiIDValue {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.upiIDValue span {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color, #1e293b);
+}
+
+.copyButton {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.upiNote {
+  font-size: 0.75rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.transactionVerification {
+  background-color: var(--bg-color-hover, #f8fafc);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+
+.transactionVerification h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--text-color, #1e293b);
+  text-align: left;
+}
+
+.transactionIdInput {
+  margin-bottom: 1.25rem;
+}
+
+.transactionIdInput label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  margin-bottom: 0.5rem;
+}
+
+.transactionIdInput input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+}
+
+.verifyButton, .completeButton {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.verifyButton:hover, .completeButton:hover {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+.verifyButton:disabled, .completeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Cash Payment */
+.cashInstructions {
+  background-color: var(--bg-color-hover, #f8fafc);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.cashInstructions p {
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  color: var(--text-color, #1e293b);
+}
+
+/* Dark Mode Styles */
+:global(.dark-mode) .addPatronPage {
+  background-color: #1e293b;
+}
+
+:global(.dark-mode) .formContainer,
+:global(.dark-mode) .modal,
+:global(.dark-mode) .paymentModal,
+:global(.dark-mode) .formInput,
+:global(.dark-mode) .transactionIdInput input {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+
+:global(.dark-mode) .sectionTitle,
+:global(.dark-mode) .formLabel,
+:global(.dark-mode) .membershipTypeLabel,
+:global(.dark-mode) .modalHeader h2,
+:global(.dark-mode) .paymentMethods h3,
+:global(.dark-mode) .upiPaymentInfo h4,
+:global(.dark-mode) .cashPaymentInfo h4,
+:global(.dark-mode) .transactionVerification h4,
+:global(.dark-mode) .credentialValue,
+:global(.dark-mode) .upiIDValue span {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .pageHeader h3,
+:global(.dark-mode) .feeDisplay,
+:global(.dark-mode) .membershipDuration,
+:global(.dark-mode) .paymentLabel,
+:global(.dark-mode) .transactionIdInput label,
+:global(.dark-mode) .credentialLabel,
+:global(.dark-mode) .credentialNote,
+:global(.dark-mode) .upiIDLabel,
+:global(.dark-mode) .upiNote,
+:global(.dark-mode) .cashInstructions p,
+:global(.dark-mode) .paymentConfirmationDetails p {
+  color: #94a3b8;
+}
+
+:global(.dark-mode) .membershipInfo,
+:global(.dark-mode) .paymentDetails,
+:global(.dark-mode) .credentialInfo,
+:global(.dark-mode) .transactionVerification,
+:global(.dark-mode) .cashInstructions,
+:global(.dark-mode) .qrLoading {
+  background-color: #0f172a;
+}
+
+:global(.dark-mode) .formInput,
+:global(.dark-mode) .transactionIdInput input {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .paymentMethod {
+  border-color: #334155;
+}
+
+:global(.dark-mode) .paymentMethod.selected {
+  background-color: rgba(66, 99, 235, 0.15);
+}
+
+:global(.dark-mode) .copyButton {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .cancelButton {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .cancelButton:hover {
+  background-color: #475569;
+}
+
+:global(.dark-mode) .closeButton {
+  color: #94a3b8;
+}
+
+:global(.dark-mode) .paymentConfirmation {
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .formSections {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .upiDetails {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .upiQRContainer, .upiIDContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .patronForm {
+    padding: 1rem;
+  }
+  
+  .formActions {
+    flex-direction: column-reverse;
+  }
+  
+  .cancelButton, .submitButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .addPatronPage {
+    padding: 1rem;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .modalBody {
+    padding: 1rem;
+  }
+  
+  .modalFooter {
+    padding: 1rem;
+  }
+  
+  .modalButton {
+    width: 100%;
+  }
+}

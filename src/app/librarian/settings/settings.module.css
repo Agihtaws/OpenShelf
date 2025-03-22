@@ -1,0 +1,513 @@
+/* src/app/librarian/settings/settings.module.css */
+
+.settingsContainer {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--bg-color, #f8fafc);
+}
+
+/* Settings Header */
+.settingsHeader {
+  margin-bottom: 2rem;
+}
+
+.settingsHeader h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0.75rem 0 0.5rem;
+  color: var(--text-color, #1e293b);
+}
+
+.settingsHeader h3 {
+  font-size: 1rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--primary-color, #4263eb);
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+/* Messages */
+.successMessage, .errorMessage {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.successMessage {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.errorMessage {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.messageIcon {
+  flex-shrink: 0;
+}
+
+/* Settings Card */
+.settingsCard {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color, #e2e8f0);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.cardHeader {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.cardHeader h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color, #1e293b);
+}
+
+/* Profile Section */
+.profileSection {
+  display: flex;
+  padding: 1.5rem;
+  gap: 2rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.avatarSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userInitialsAvatar {
+  width: 100px;
+  height: 100px;
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.avatarInfo {
+  font-size: 0.75rem;
+  color: var(--text-color-secondary, #64748b);
+  text-align: center;
+  max-width: 150px;
+}
+
+.profileForm {
+  flex: 1;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-color, #1e293b);
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color-tertiary, #94a3b8);
+}
+
+.formInput, .disabledInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: var(--primary-color, #4263eb);
+  box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.1);
+}
+
+.disabledInput {
+  background-color: var(--bg-color-hover, #f8fafc);
+  color: var(--text-color-secondary, #64748b);
+  cursor: not-allowed;
+}
+
+/* Security Section */
+.securitySection {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.securitySection h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  color: var(--text-color, #1e293b);
+}
+
+.passwordSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-color-hover, #f8fafc);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.passwordInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.securityIcon {
+  font-size: 1.5rem;
+  color: var(--primary-color, #4263eb);
+}
+
+.passwordInfo h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: var(--text-color, #1e293b);
+}
+
+.passwordInfo p {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0;
+}
+
+.changePasswordBtn {
+  padding: 0.625rem 1.25rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--primary-color, #4263eb);
+  border: 1px solid var(--primary-color, #4263eb);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.changePasswordBtn:hover {
+  background-color: var(--primary-color-light, rgba(66, 99, 235, 0.05));
+}
+
+/* Form Actions */
+.formActions {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.saveButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.saveButton:hover:not(:disabled) {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+.saveButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.saveButton.saved {
+  background-color: #10b981;
+}
+
+.cancelButton {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color, #1e293b);
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 1rem;
+}
+
+.cancelButton:hover {
+  background-color: var(--bg-color-hover, #cbd5e1);
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.passwordModal {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.modalHeader h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color, #1e293b);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-color-tertiary, #94a3b8);
+  cursor: pointer;
+}
+
+.modalBody {
+  padding: 1.5rem;
+}
+
+.modalFooter {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border-color, #e2e8f0);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Password Strength */
+.passwordStrength {
+  margin-top: 0.75rem;
+}
+
+.strengthBar {
+  height: 8px;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.strengthIndicator {
+  height: 100%;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+.strengthText {
+  font-size: 0.75rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+.passwordRequirements {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.75rem;
+  color: var(--text-color-secondary, #64748b);
+}
+
+.passwordRequirements li {
+  margin-bottom: 0.25rem;
+}
+
+.passwordMismatch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #ef4444;
+  margin: 0.5rem 0 0;
+}
+
+/* Dark Mode Styles */
+:global(.dark-mode) .settingsContainer {
+  background-color: #1e293b;
+}
+
+:global(.dark-mode) .settingsCard,
+:global(.dark-mode) .passwordModal {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+:global(.dark-mode) .settingsHeader h1,
+:global(.dark-mode) .cardHeader h2,
+:global(.dark-mode) .securitySection h3,
+:global(.dark-mode) .passwordInfo h4,
+:global(.dark-mode) .modalHeader h3,
+:global(.dark-mode) .formGroup label {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .settingsHeader p,
+:global(.dark-mode) .avatarInfo,
+:global(.dark-mode) .passwordInfo p,
+:global(.dark-mode) .strengthText,
+:global(.dark-mode) .passwordRequirements {
+  color: #94a3b8;
+}
+
+:global(.dark-mode) .formInput {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .disabledInput {
+  background-color: #0f172a;
+  border-color: #334155;
+  color: #64748b;
+}
+
+:global(.dark-mode) .passwordSection {
+  background-color: #0f172a;
+}
+
+:global(.dark-mode) .changePasswordBtn {
+  background-color: #1e293b;
+}
+
+:global(.dark-mode) .cardHeader,
+:global(.dark-mode) .profileSection,
+:global(.dark-mode) .securitySection,
+:global(.dark-mode) .modalHeader,
+:global(.dark-mode) .modalFooter {
+  border-color: #334155;
+}
+
+:global(.dark-mode) .strengthBar {
+  background-color: #334155;
+}
+
+:global(.dark-mode) .cancelButton {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .cancelButton:hover {
+  background-color: #475569;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .profileSection {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .passwordSection {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .changePasswordBtn {
+    width: 100%;
+  }
+  
+  .modalFooter {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  
+  .modalFooter button {
+    width: 100%;
+  }
+  
+  .cancelButton {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .settingsContainer {
+    padding: 1rem;
+  }
+  
+  .formActions {
+    padding: 1rem;
+  }
+  
+  .saveButton {
+    width: 100%;
+  }
+}

@@ -1,0 +1,707 @@
+/* src/app/user/book/[id]/BookDetails.module.css */
+
+.bookDetailsPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.backNavigation {
+  margin-bottom: 2rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  color: #4a5568;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: #2d3748;
+}
+
+.backLink svg {
+  margin-right: 0.5rem;
+}
+
+.bookDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .bookDetails {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.bookCover {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .bookCover {
+    margin: 0;
+  }
+}
+
+.coverImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}/* Add these styles to your existing BookDetails.module.css file */
+
+/* Button styles for the new-arrivals-like buttons */
+.reserveButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #4c51bf;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.reserveButton:hover {
+  background-color: #434190;
+}
+
+.reserveButton:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.borrowedButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #a0aec0;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.borrowedButton.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Update existing cancelButton for consistency with new-arrivals page */
+.cancelButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cancelButton:hover {
+  background-color: #d32f2f;
+}
+
+/* Popup overlay for messages */
+.popupOverlay {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.popup {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px 24px;
+  animation: slideIn 0.3s ease-out;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.favoritePopup {
+  border-left: 4px solid #e53e3e;
+}
+
+.popupIcon {
+  margin-right: 12px;
+  color: #e53e3e;
+  font-size: 20px;
+}
+
+.popupMessage {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+/* Media queries for responsive buttons */
+@media (max-width: 768px) {
+  .reserveButton, .cancelButton, .borrowedButton {
+    width: 100%;
+  }
+}
+
+
+.noCoverImage {
+  width: 100%;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e2e8f0;
+  border-radius: 8px;
+  color: #a0aec0;
+}
+
+.bookInfo {
+  flex: 1;
+}
+
+.bookTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: #2d3748;
+  line-height: 1.2;
+}
+
+.bookAuthor {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+}
+
+.bookCategories {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.categoryPill {
+  background-color: #ebf4ff;
+  color: #4c51bf;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.bookMeta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .bookMeta {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.infoIcon {
+  margin-right: 0.5rem;
+  color: #718096;
+  flex-shrink: 0;
+}
+
+.statusSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.available {
+  background-color: #c6f6d5;
+  color: #276749;
+}
+
+.onloan {
+  background-color: #fed7d7;
+  color: #9b2c2c;
+}
+
+.reserved {
+  background-color: #feebc8;
+  color: #9c4221;
+}
+
+.lost {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.damaged {
+  background-color: #fed7d7;
+  color: #9b2c2c;
+}
+
+.copiesInfo {
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+.actionButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.borrowButton, .wishlistButton, .cancelReserveButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+}
+
+.borrowButton {
+  background-color: #4c51bf;
+  color: white;
+}
+
+.borrowButton:hover {
+  background-color: #434190;
+}
+
+.borrowButton:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.cancelReserveButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancelReserveButton:hover {
+  background-color: #d32f2f;
+}
+
+.wishlistButton {
+  background-color: white;
+  color: #4c51bf;
+  border: 1px solid #4c51bf;
+}
+
+.wishlistButton:hover {
+  background-color: #f7fafc;
+}
+
+.wishlisted {
+  background-color: #f8e4e4;
+  color: #e53e3e;
+  border: 1px solid #e53e3e;
+}
+
+.wishlisted:hover {
+  background-color: #fed7d7;
+}
+
+/* You can also add a heart icon style */
+.wishlisted svg {
+  color: #e53e3e;
+  fill: #e53e3e;
+}
+
+.descriptionSection h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5568;
+  white-space: pre-line;
+}
+
+/* Loading and error states */
+.loadingContainer, .errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #4c51bf;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.errorMessage {
+  color: #e53e3e;
+  margin-bottom: 1.5rem;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #4c51bf;
+  color: white;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.backButton:hover {
+  background-color: #434190;
+}
+
+.backButton svg {
+  margin-right: 0.5rem;
+}
+
+/* Toast notification styles */
+.toastContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.toast {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px 24px;
+  animation: slideIn 0.3s ease-out;
+  max-width: 400px;
+}
+
+.toast.success {
+  border-left: 4px solid #48bb78;
+}
+
+.toast.error {
+  border-left: 4px solid #e53e3e;
+}
+
+.toastMessage {
+  font-size: 14px;
+  color: #333;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Confirmation overlay */
+.confirmationOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.confirmationPopup {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.confirmationIcon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.reserveIcon {
+  color: #2196f3;
+}
+
+.cancelIcon {
+  color: #f44336;
+}
+
+.confirmationPopup h3 {
+  margin: 0 0 16px 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.bookInfoInPopup {
+  margin-bottom: 24px;
+}
+
+.bookTitleInPopup {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.bookAuthorInPopup {
+  color: #666;
+  font-size: 16px;
+}
+
+.datePickerContainer {
+  margin: 24px 0;
+  text-align: left;
+}
+
+.datePickerLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.dateInstructions {
+  margin: 16px 0 24px;
+  color: #666;
+  font-size: 14px;
+  text-align: left;
+}
+
+.confirmationButtons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.confirmButton {
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.confirmButton:hover {
+  background-color: #1976d2;
+}
+
+.confirmButton:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+}
+
+.cancelConfirmButton {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelConfirmButton:hover {
+  background-color: #d32f2f;
+}
+
+.cancelConfirmButton:disabled {
+  background-color: #e57373;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #d32f2f;
+}
+
+.cancelButton.popup {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelButton.popup:hover {
+  background-color: #f5f5f5;
+}
+
+.cancel {
+  border-top: 5px solid #f44336;
+}
+
+/* Success state */
+.success {
+  background-color: #f8f9fa;
+}
+
+.successContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.successIcon {
+  background-color: #4caf50;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+
+.pickupInfo {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  padding: 12px 20px;
+  background-color: #e3f2fd;
+  border-radius: 8px;
+  color: #0d47a1;
+}
+
+.calendarIcon {
+  margin-right: 8px;
+}
+
+.successNote {
+  color: #666;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+
+
+@media (max-width: 768px) {
+  .actionButtons {
+    flex-direction: column;
+  }
+  
+  .borrowButton, .wishlistButton, .cancelReserveButton {
+    width: 100%;
+  }
+}

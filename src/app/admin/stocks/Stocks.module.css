@@ -1,0 +1,779 @@
+/* src/app/admin/stocks/Stocks.module.css */
+
+/* Main Page Layout */
+.stocksPage {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--bg-color, #f8fafc);
+  min-height: calc(100vh - 60px);
+}
+
+/* Page Header */
+.pageHeader {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pageHeader h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-color, #1e293b);
+}
+
+.pageHeader p {
+  font-size: 1rem;
+  color: var(--text-color-secondary, #64748b);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Action Bar */
+.actionBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color-tertiary, #94a3b8);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.searchInput:focus {
+  border-color: var(--primary-color, #4263eb);
+  box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.1);
+  outline: none;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filterLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-color, #1e293b);
+}
+
+.filterIcon {
+  color: var(--text-color-tertiary, #94a3b8);
+}
+
+.filterSelect {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+}
+
+.filterSelect:focus {
+  border-color: var(--primary-color, #4263eb);
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.addButton, .exportButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
+.addButton {
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border: none;
+}
+
+.addButton:hover {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+.exportButton {
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color, #1e293b);
+  border: none;
+}
+
+.exportButton:hover {
+  background-color: var(--bg-color-hover, #f1f5f9);
+}
+
+/* Inventory Table */
+.inventoryTable {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 1fr 1fr 1.5fr 1.5fr;
+  background-color: var(--bg-color-secondary, #f1f5f9);
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.tableBody {
+  max-height: 65vh;
+  overflow-y: auto;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 1fr 1fr 1.5fr 1.5fr;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  transition: background-color 0.2s;
+}
+
+.tableRow:hover {
+  background-color: var(--bg-color-hover, #f8fafc);
+}
+
+.tableCell {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-color, #1e293b);
+}
+
+.tableHeader .tableCell {
+  font-weight: 600;
+  color: var(--text-color-secondary, #64748b);
+  cursor: pointer;
+  user-select: none;
+}
+
+.tableHeader .tableCell:hover {
+  color: var(--primary-color, #4263eb);
+}
+
+.sortActive {
+  color: var(--primary-color, #4263eb) !important;
+}
+
+.sortIcon {
+  margin-left: 0.5rem;
+}
+
+/* Book Title Cell */
+.bookTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bookCoverThumb {
+  width: 40px;
+  height: 60px;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.noImageThumb {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color-tertiary, #94a3b8);
+}
+
+/* Categories List */
+.categoriesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.categoryPill {
+  font-size: 0.75rem;
+  background-color: var(--primary-color-light, rgba(66, 99, 235, 0.1));
+  color: var(--primary-color, #4263eb);
+  padding: 0.125rem 0.375rem;
+  border-radius: 1rem;
+  white-space: nowrap;
+}
+
+.noCategoryLabel {
+  font-size: 0.75rem;
+  color: var(--text-color-tertiary, #94a3b8);
+  font-style: italic;
+}
+
+/* Copies and Status */
+.copiesContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.lowStockWarning {
+  color: var(--warning-color, #f59e0b);
+}
+
+.statusBadge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.available {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.lowStock {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.unavailable {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editButton, .deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.editButton {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.editButton:hover {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+.deleteButton {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.deleteButton:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.loadingSpinner {
+  width: 3rem;
+  height: 3rem;
+  border: 0.25rem solid var(--border-color, #e2e8f0);
+  border-top-color: var(--primary-color, #4263eb);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.emptyIcon {
+  color: var(--text-color-tertiary, #94a3b8);
+  margin-bottom: 1rem;
+}
+
+.emptyState h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color, #1e293b);
+}
+
+.emptyState p {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+}
+
+/* Messages */
+.errorMessage, .successMessage {
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.errorMessage {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.successMessage {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+/* Edit Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.modalHeader h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color, #1e293b);
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color-secondary, #64748b);
+  cursor: pointer;
+}
+
+.modalBookInfo {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  background-color: var(--bg-color-secondary, #f1f5f9);
+}
+
+.modalCover {
+  border-radius: 0.25rem;
+  object-fit: cover;
+}
+
+.modalBookInfo h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color, #1e293b);
+  margin: 0 0 0.25rem;
+}
+
+.modalBookInfo p {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0;
+}
+
+.editForm {
+  padding: 1.5rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-color, #1e293b);
+  margin-bottom: 0.375rem;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: var(--primary-color, #4263eb);
+  box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.1);
+  outline: none;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Categories Input */
+.categoriesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.375rem;
+  min-height: 45px;
+}
+
+.categoryTag {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  background-color: var(--primary-color-light, rgba(66, 99, 235, 0.1));
+  color: var(--primary-color, #4263eb);
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.removeCategory {
+  background: none;
+  border: none;
+  color: var(--primary-color, #4263eb);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoryInput {
+  flex: 1;
+  min-width: 100px;
+  border: none;
+  padding: 0.25rem 0;
+  font-size: 0.875rem;
+  background-color: transparent;
+  color: var(--text-color, #1e293b);
+}
+
+.categoryInput:focus {
+  outline: none;
+}
+
+/* Modal Actions */
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cancelButton, .saveButton {
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelButton {
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color, #1e293b);
+  border: none;
+}
+
+.cancelButton:hover {
+  background-color: var(--bg-color-hover, #f1f5f9);
+}
+
+.saveButton {
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border: none;
+}
+
+.saveButton:hover {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+/* Dark Mode Styles */
+:global(.dark-mode) .stocksPage {
+  background-color: #1e293b;
+}
+
+:global(.dark-mode) .pageHeader h1,
+:global(.dark-mode) .modalHeader h2,
+:global(.dark-mode) .modalBookInfo h3,
+:global(.dark-mode) .formGroup label,
+:global(.dark-mode) .emptyState h3 {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .pageHeader p,
+:global(.dark-mode) .modalBookInfo p,
+:global(.dark-mode) .emptyState p {
+  color: #94a3b8;
+}
+
+:global(.dark-mode) .searchInput,
+:global(.dark-mode) .filterSelect,
+:global(.dark-mode) .formGroup input,
+:global(.dark-mode) .formGroup select,
+:global(.dark-mode) .formGroup textarea,
+:global(.dark-mode) .categoriesContainer,
+:global(.dark-mode) .modal,
+:global(.dark-mode) .inventoryTable {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .tableHeader {
+  background-color: #111827;
+}
+
+:global(.dark-mode) .modalBookInfo {
+  background-color: #111827;
+}
+
+:global(.dark-mode) .tableRow:hover {
+  background-color: #1e293b;
+}
+
+:global(.dark-mode) .tableCell {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .noImageThumb {
+  background-color: #334155;
+}
+
+:global(.dark-mode) .emptyIcon {
+  color: #64748b;
+}
+
+:global(.dark-mode) .exportButton,
+:global(.dark-mode) .cancelButton {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .exportButton:hover,
+:global(.dark-mode) .cancelButton:hover {
+  background-color: #475569;
+}
+
+:global(.dark-mode) .loadingSpinner {
+  border-color: #334155;
+  border-top-color: #4263eb;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 2.5fr 1.5fr 1.5fr 1fr 1fr 1.5fr 1.5fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 2fr 1.5fr 1.5fr 1fr 1fr 1.5fr 1fr;
+  }
+  
+  .actionBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .searchWrapper {
+    width: 100%;
+  }
+  
+  .filters {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+    margin-left: 0;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 2fr 1.5fr 0fr 0fr 1fr 1.5fr 1fr;
+  }
+  
+  .tableCell:nth-child(3),
+  .tableCell:nth-child(4) {
+    display: none;
+  }
+  
+  .tableBody {
+    max-height: 50vh;
+  }
+  
+  .filterGroup {
+    flex: 1;
+  }
+  
+  .filterSelect {
+    width: 100%;
+  }
+  
+  .modalActions {
+    flex-direction: column;
+  }
+  
+  .cancelButton, .saveButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 2fr 0fr 0fr 0fr 1fr 1.5fr 1fr;
+  }
+  
+  .tableCell:nth-child(2) {
+    display: none;
+  }
+  
+  .stocksPage {
+    padding: 1rem;
+  }
+  
+  .pageHeader h1 {
+    font-size: 1.5rem;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .addButton, .exportButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,536 @@
+/* src/app/admin/reports/reports.module.css */
+
+/* Main Content */
+.mainContent {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-x: hidden;
+  background-color: var(--bg-color, #f8fafc);
+  min-height: 100vh;
+}
+
+.reportsContent {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pageTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-color, #1e293b);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pageTitleIcon {
+  color: var(--primary-color, #4263eb);
+}
+
+.timeFilterContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.filterLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-color, #1e293b);
+}
+
+.filterIcon {
+  color: var(--text-color-secondary, #64748b);
+}
+
+.timeFilter {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+  min-width: 140px;
+}
+
+.timeFilter:focus {
+  outline: none;
+  border-color: var(--primary-color, #4263eb);
+  box-shadow: 0 0 0 2px rgba(66, 99, 235, 0.1);
+}
+
+.exportContainer {
+  position: relative;
+}
+
+.exportButton, .refreshButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.exportButton {
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+}
+
+.exportButton:hover:not(:disabled) {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+.exportButton:disabled {
+  background-color: var(--text-color-tertiary, #94a3b8);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.refreshButton {
+  background-color: var(--primary-color-light, rgba(66, 99, 235, 0.1));
+  color: var(--primary-color, #4263eb);
+}
+
+.refreshButton:hover:not(:disabled) {
+  background-color: var(--primary-color-light, rgba(66, 99, 235, 0.2));
+}
+
+.refreshButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.exportIcon, .refreshIcon {
+  font-size: 1rem;
+}
+
+.refreshIcon.spinning {
+  animation: spin 1s linear infinite;
+}
+
+.exportOptions {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color, #e2e8f0);
+  padding: 0.5rem;
+  z-index: 10;
+  min-width: 150px;
+}
+
+.exportOptionButton {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--text-color, #1e293b);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.exportOptionButton:hover {
+  background-color: var(--bg-color-hover, #f1f5f9);
+}
+
+/* Loading States */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.loadingSpinner {
+  width: 3rem;
+  height: 3rem;
+  border: 0.25rem solid var(--border-color, #e2e8f0);
+  border-top-color: var(--primary-color, #4263eb);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Summary Section */
+.summarySection {
+  margin-bottom: 2rem;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.summaryCard {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color, #e2e8f0);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.summaryCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.summaryIconContainer {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color-light, rgba(66, 99, 235, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.summaryIcon {
+  font-size: 1.5rem;
+  color: var(--primary-color, #4263eb);
+}
+
+.summaryContent {
+  flex: 1;
+}
+
+.summaryValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--text-color, #1e293b);
+}
+
+.summaryLabel {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #64748b);
+  margin: 0;
+}
+
+/* Reports Sections */
+.reportsSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--text-color, #1e293b);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.sectionTitleIcon {
+  margin-right: 0.5rem;
+  color: var(--primary-color, #4263eb);
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Chart Cards */
+.chartCard {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color, #e2e8f0);
+  display: flex;
+  flex-direction: column;
+}
+
+.chartHeader {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chartTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  color: var(--text-color, #1e293b);
+}
+
+.chartDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
+.chartContainer {
+  padding: 1rem;
+  flex: 1;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noChartData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-color-secondary, #64748b);
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Popular Books Table */
+.booksTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.booksTable th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-color-secondary, #64748b);
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.booksTable td {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--text-color, #1e293b);
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.bookTitle {
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.checkoutCount {
+  font-weight: 600;
+  color: var(--primary-color, #4263eb);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .summaryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .headerRight {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 1rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .headerRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .chartsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chartContainer {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .headerRight {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .timeFilterContainer {
+    width: 100%;
+  }
+  
+  .timeFilter {
+    flex-grow: 1;
+  }
+  
+  .exportContainer, .refreshButton {
+    width: 100%;
+  }
+  
+  .exportButton, .refreshButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .summaryCard {
+    padding: 1rem;
+  }
+  
+  .summaryValue {
+    font-size: 1.25rem;
+  }
+  
+  .chartHeader {
+    padding: 0.75rem 1rem;
+  }
+  
+  .chartContainer {
+    padding: 0.75rem;
+    min-height: 200px;
+  }
+}
+
+/* Dark Mode Styles */
+:global(.dark-mode) .mainContent {
+  background-color: #1e293b;
+}
+
+:global(.dark-mode) .summaryCard,
+:global(.dark-mode) .chartCard,
+:global(.dark-mode) .exportOptions {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+:global(.dark-mode) .summaryIconContainer {
+  background-color: rgba(66, 99, 235, 0.2);
+}
+
+:global(.dark-mode) .summaryValue,
+:global(.dark-mode) .sectionTitle,
+:global(.dark-mode) .chartTitle,
+:global(.dark-mode) .pageTitle,
+:global(.dark-mode) .filterLabel,
+:global(.dark-mode) .booksTable td {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .summaryLabel,
+:global(.dark-mode) .booksTable th,
+:global(.dark-mode) .noChartData {
+  color: #94a3b8;
+}
+
+:global(.dark-mode) .sectionTitle {
+  border-bottom-color: #334155;
+}
+
+:global(.dark-mode) .chartHeader {
+  border-bottom-color: #334155;
+}
+
+:global(.dark-mode) .booksTable th,
+:global(.dark-mode) .booksTable td {
+  border-bottom-color: #334155;
+}
+
+:global(.dark-mode) .timeFilter {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .refreshButton {
+  background-color: rgba(66, 99, 235, 0.2);
+}
+
+:global(.dark-mode) .refreshButton:hover:not(:disabled) {
+  background-color: rgba(66, 99, 235, 0.3);
+}
+
+:global(.dark-mode) .exportOptionButton {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .exportOptionButton:hover {
+  background-color: #2d3748;
+}
+
+:global(.dark-mode) .loadingSpinner {
+  border-color: #334155;
+  border-top-color: #4263eb;
+}

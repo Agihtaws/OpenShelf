@@ -1,0 +1,119 @@
+/* src/components/home/Banner.module.css */
+.banner {
+    margin-top: 4rem;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3949ab 100%);
+    color: white;
+    padding: 6rem 0 4rem;
+    position: relative;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .bannerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bannerText {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .bannerText h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .bannerText p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+  }
+  
+  .bannerButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .primaryButton {
+    background-color: white;
+    color: #1e3a8a;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .primaryButton:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+  }
+  
+  .secondaryButton {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .secondaryButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .bannerImage {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .heroImage {
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  @media (min-width: 768px) {
+    .bannerContent {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .bannerText {
+      flex: 1;
+      text-align: left;
+      margin-right: 2.5rem;
+      margin-bottom: 0;
+    }
+    
+    .bannerImage {
+      flex: 1;
+    }
+    
+    .bannerText h1 {
+      font-size: 3rem;
+    }
+    
+    .bannerButtons {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+  

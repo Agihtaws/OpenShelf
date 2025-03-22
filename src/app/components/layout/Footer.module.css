@@ -1,0 +1,90 @@
+/* src/components/layout/Footer.module.css */
+.footer {
+    background-color: #1f2937;
+    color: #f3f4f6;
+    padding: 5rem 0 2rem;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .footerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .footerLogo {
+    margin-bottom: 1rem;
+  }
+  
+  .logoText {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+  }
+  
+  .footerLogo p {
+    color: #9ca3af;
+    margin-top: 0.5rem;
+    font-size: 0.9375rem;
+  }
+  
+  .footerLinks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .footerLinkGroup h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    color: white;
+  }
+  
+  .footerLinkGroup a {
+    display: block;
+    color: #9ca3af;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
+    transition: color 0.2s ease;
+  }
+  
+  .footerLinkGroup a:hover {
+    color: white;
+  }
+  
+  .footerBottom {
+    padding-top: 2rem;
+    border-top: 1px solid #374151;
+    font-size: 0.875rem;
+    color: #9ca3af;
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .footerContent {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    .footerLogo {
+      max-width: 250px;
+    }
+    
+    .footerLinks {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .footerBottom {
+      text-align: left;
+    }
+  }
+  

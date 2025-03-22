@@ -1,0 +1,521 @@
+/* src/app/stocks/Stocks.module.css */
+.stocksContainer {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 80px auto 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .mainContent {
+    width: 100%;
+  }
+  
+  .pageHeader {
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+  
+  .pageHeader h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #1e3a8a;
+    font-weight: 700;
+  }
+  
+  .pageHeader p {
+    font-size: 1.1rem;
+    color: #6b7280;
+  }
+  
+  .actionBar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .searchWrapper {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: #f9fafb;
+  }
+  
+  .searchInput:focus {
+    outline: none;
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+    background-color: white;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .filterGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .filterLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 500;
+    color: #4b5563;
+  }
+  
+  .filterIcon {
+    color: #6b7280;
+  }
+  
+  .filterSelect {
+    padding: 0.625rem 2.5rem 0.625rem 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+    font-size: 0.9rem;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+  }
+  
+  .filterSelect:focus {
+    outline: none;
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+    background-color: white;
+  }
+  
+  .viewToggle {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .viewButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+    color: #6b7280;
+    cursor: pointer;
+  }
+  
+  .viewButton.active {
+    background-color: #1e3a8a;
+    color: white;
+    border-color: #1e3a8a;
+  }
+  
+  .viewButton:hover:not(.active) {
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
+  }
+  
+  .booksContainer {
+    margin-bottom: 2rem;
+  }
+  
+  /* Grid View */
+  .gridView {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+  
+  .gridView .bookCard {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .gridView .bookCover {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: #f3f4f6;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .gridView .coverImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .gridView .noCoverImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #e5e7eb;
+    color: #9ca3af;
+  }
+  
+  .gridView .bookInfo {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .gridView .bookTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+  }
+  
+  .gridView .bookAuthor {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+  }
+  
+  .gridView .publishedYear {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .gridView .bookCategories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .gridView .bookDescription {
+    font-size: 0.85rem;
+    color: #4b5563;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  
+  /* List View */
+  .listView {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .listView .bookCard {
+    display: flex;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .listView .bookCover {
+    position: relative;
+    min-width: 150px;
+    height: 220px;
+    overflow: hidden;
+    background-color: #f3f4f6;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .listView .coverImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .listView .noCoverImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #e5e7eb;
+    color: #9ca3af;
+  }
+  
+  .listView .bookInfo {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .listView .bookTitle {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+  }
+  
+  .listView .bookAuthor {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+  }
+  
+  .listView .publishedYear {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .listView .bookCategories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .listView .bookDescription {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+  
+  /* Common styles */
+  .categoryPill {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  
+  .noCategoryLabel {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    font-style: italic;
+  }
+  
+  .moreCategoriesLabel {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+  
+  .loadMoreContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+  
+  .loadMoreButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: #4b5563;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .loadMoreButton:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+  }
+  
+  .emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 0.75rem;
+    margin-top: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .emptyIcon {
+    margin-bottom: 1.5rem;
+    color: #9ca3af;
+    background-color: #f3f4f6;
+    padding: 1.5rem;
+    border-radius: 9999px;
+  }
+  
+  .emptyState h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+    font-weight: 600;
+  }
+  
+  .emptyState p {
+    color: #6b7280;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+  
+  .loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+  }
+  
+  .loadingSpinner {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1.5rem;
+    border: 3px solid rgba(30, 58, 138, 0.1);
+    border-left-color: #1e3a8a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .errorMessage {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+    border-left: 4px solid #ef4444;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .actionBar {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1rem;
+    }
+    
+    .filters {
+      justify-content: space-between;
+    }
+    
+    .viewToggle {
+      align-self: flex-end;
+    }
+    
+    .gridView {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .gridView .bookCover {
+      height: 220px;
+    }
+    
+    .listView .bookCard {
+      flex-direction: column;
+    }
+    
+    .listView .bookCover {
+      width: 100%;
+      height: 200px;
+      min-width: auto;
+    }
+    
+    .listView .bookInfo {
+      padding: 1.25rem;
+    }
+    
+    .listView .bookTitle {
+      font-size: 1.25rem;
+    }
+    
+    .listView .bookAuthor {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stocksContainer {
+      padding: 1rem;
+      margin-top: 60px;
+    }
+    
+    .pageHeader h1 {
+      font-size: 2rem;
+    }
+    
+    .pageHeader p {
+      font-size: 1rem;
+    }
+    
+    .gridView {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    
+    .gridView .bookCover {
+      height: 200px;
+    }
+    
+    .filterGroup {
+      flex: 1;
+    }
+    
+    .filterSelect {
+      width: 100%;
+    }
+    
+    .loadMoreButton {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  

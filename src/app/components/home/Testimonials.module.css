@@ -1,0 +1,115 @@
+/* src/components/home/Testimonials.module.css */
+.testimonials {
+    padding: 5rem 0;
+    background-color: white;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+  
+  .sectionHeader p {
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .testimonialGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .testimonialCard {
+    background-color: #f9fafb;
+    border-radius: 0.75rem;
+    padding: 2.5rem;
+    position: relative;
+    border: 1px solid #f3f4f6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .testimonialCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .quote {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 4rem;
+    line-height: 0;
+    height: 2rem;
+    color: #e0e7ff;
+    font-family: Georgia, serif;
+  }
+  
+  .testimonialText {
+    color: #4b5563;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  
+  .testimonialAuthor {
+    display: flex;
+    align-items: center;
+  }
+  
+  .authorAvatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+  }
+  
+  .authorInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .authorInfo h4 {
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+  }
+  
+  .authorInfo p {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  
+  @media (min-width: 768px) {
+    .testimonialGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .testimonialGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  

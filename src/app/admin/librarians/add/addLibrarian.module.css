@@ -1,0 +1,482 @@
+/* src/app/admin/librarians/add/addLibrarian.module.css */
+
+/* Layout */
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color, #f8fafc);
+  transition: background-color 0.3s ease;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease;
+}
+.dashboardContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pageContainer {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color, #e2e8f0);
+  padding: 1.5rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+
+/* Page Header */
+.pageHeader {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-color, #1e293b);
+}
+
+.pageHeader p {
+  color: var(--text-color-secondary, #64748b);
+  font-size: 1rem;
+}
+
+/* Form Container */
+.formContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Form Sections */
+.formSection {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  transition: border-color 0.3s ease;
+}
+
+.formSection h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--text-color, #1e293b);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1.25rem;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-color, #1e293b);
+}
+
+.formGroup input,
+.formGroup select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-color-card, #ffffff);
+  color: var(--text-color, #1e293b);
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.3s ease, color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  border-color: var(--primary-color, #4263eb);
+  box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.1);
+  outline: none;
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+}
+
+.fieldError {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.375rem;
+}
+
+/* Form Actions */
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cancelButton {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color, #1e293b);
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancelButton:hover {
+  background-color: var(--bg-color-hover, #f1f5f9);
+}
+
+.submitButton {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+.submitButton:disabled {
+  background-color: var(--text-color-tertiary, #94a3b8);
+  cursor: not-allowed;
+}
+
+/* Error Alert */
+.errorAlert {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.loadingSpinner {
+  width: 3rem;
+  height: 3rem;
+  border: 0.25rem solid var(--border-color, #e2e8f0);
+  border-top-color: var(--primary-color, #4263eb);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Popup Styles */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+.popup {
+  background-color: var(--bg-color-card, #ffffff);
+  border-radius: 0.75rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.popupHeader {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popupHeader h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color, #1e293b);
+}
+
+.popupClose {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-color-secondary, #64748b);
+  cursor: pointer;
+}
+
+.popupContent {
+  padding: 1.5rem;
+}
+
+.credentialsContainer {
+  background-color: var(--bg-color-secondary, #f1f5f9);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.credentialItem {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.credentialItem:last-child {
+  margin-bottom: 0;
+}
+
+.credentialLabel {
+  font-weight: 600;
+  width: 120px;
+  flex-shrink: 0;
+  color: var(--text-color, #1e293b);
+}
+
+.credentialValue {
+  font-family: monospace;
+  color: var(--text-color, #1e293b);
+  word-break: break-all;
+}
+
+.popupNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background-color: rgba(245, 158, 11, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.noteIcon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.popupNote p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-color, #1e293b);
+}
+
+.popupActions {
+  padding: 1.25rem;
+  border-top: 1px solid var(--border-color, #e2e8f0);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.copyButton {
+  padding: 0.625rem 1rem;
+  background-color: var(--bg-color-secondary, #e2e8f0);
+  color: var(--text-color, #1e293b);
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.copyButton:hover {
+  background-color: var(--bg-color-hover, #f1f5f9);
+}
+
+.doneButton {
+  padding: 0.625rem 1rem;
+  background-color: var(--primary-color, #4263eb);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.doneButton:hover {
+  background-color: var(--primary-color-dark, #3151d3);
+}
+
+/* Dark Mode Styles */
+:global(.dark-mode) .adminLayout {
+  background-color: #1e293b;
+}
+
+:global(.dark-mode) .pageContainer {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+:global(.dark-mode) .pageTitle,
+:global(.dark-mode) .formSection h2,
+:global(.dark-mode) .formGroup label,
+:global(.dark-mode) .popupHeader h2,
+:global(.dark-mode) .credentialLabel,
+:global(.dark-mode) .credentialValue,
+:global(.dark-mode) .popupNote p {
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .pageHeader p {
+  color: #94a3b8;
+}
+
+:global(.dark-mode) .formGroup input,
+:global(.dark-mode) .formGroup select {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .formSection {
+  border-bottom-color: #334155;
+}
+
+:global(.dark-mode) .cancelButton {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .cancelButton:hover {
+  background-color: #475569;
+}
+
+:global(.dark-mode) .popup {
+  background-color: #1e293b;
+}
+
+:global(.dark-mode) .popupHeader,
+:global(.dark-mode) .popupActions {
+  border-color: #334155;
+}
+
+:global(.dark-mode) .credentialsContainer {
+  background-color: #111827;
+}
+
+:global(.dark-mode) .copyButton {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+:global(.dark-mode) .copyButton:hover {
+  background-color: #475569;
+}
+
+:global(.dark-mode) .loadingSpinner {
+  border-color: #334155;
+  border-top-color: #4263eb;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 1rem;
+  }
+  
+  .pageContainer {
+    padding: 1.25rem;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .formActions {
+    flex-direction: column;
+  }
+  
+  .cancelButton, .submitButton {
+    width: 100%;
+  }
+  
+  .popupActions {
+    flex-direction: column;
+  }
+  
+  .copyButton, .doneButton {
+    width: 100%;
+  }
+  
+  .credentialLabel {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+  
+  .formSection h2 {
+    font-size: 1.125rem;
+  }
+  
+  .popupHeader h2 {
+    font-size: 1.125rem;
+  }
+  
+  .credentialItem {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .credentialLabel {
+    width: auto;
+    margin-bottom: 0.25rem;
+  }
+}

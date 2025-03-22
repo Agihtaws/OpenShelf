@@ -1,0 +1,132 @@
+/* src/components/layout/PageHeader.module.css */
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - 250px);
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transition: all 0.3s ease;
+  }
+  
+  .headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 100%;
+  }
+  
+  .searchContainer {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .searchInputWrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 8px 8px 8px 35px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .searchInput:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  .headerActions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .notificationBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    color: #666;
+  }
+  
+  .notificationBadge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .themeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .userInfo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .userName {
+    font-weight: 500;
+    margin-right: 8px;
+  }
+  
+  /* Dark mode styles */
+  :global(.dark-mode) .header {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  :global(.dark-mode) .searchInput {
+    background-color: #333;
+    border-color: #444;
+    color: #f5f5f5;
+  }
+  
+  :global(.dark-mode) .searchIcon,
+  :global(.dark-mode) .notificationBtn {
+    color: #aaa;
+  }
+  
+  /* Mobile responsive styles */
+  @media (max-width: 768px) {
+    .header {
+      width: 100%;
+    }
+    
+    .searchContainer {
+      max-width: 200px;
+    }
+    
+    .userName {
+      display: none;
+    }
+  }
+  
