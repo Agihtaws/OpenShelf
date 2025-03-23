@@ -80,5 +80,8 @@ This structured workflow ensures smooth library management for all users.
 
 ## About
 OpenShelf streamlines library management, enhancing efficiency and user satisfaction. Check out the repository [here](https://github.com/Agihtaws/OpenShelf) for more details.
-# My discord Name is swathi8118
+
+## Video Demo
+Watch the website walkthrough here: [Video Demo](https://youtu.be/DwRf4wP_jPo?si=azO0XrZFrw0XF5pa)
+
 Enjoy exploring OpenShelf! 😊
